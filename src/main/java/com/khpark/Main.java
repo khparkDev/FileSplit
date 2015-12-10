@@ -1,12 +1,17 @@
 package com.khpark;
 
+/**
+ * The type Main.
+ */
 public class Main {
 
 	/**
 	 * new TextFileSplit(절대경로포함-파일명)
 	 * new TextFileSplit(절대경로포함-파일명, 분할할 파일 개수)
 	 * new TextFileSplit(절대경로포함-파일명, 분할할 파일 개수, 버퍼크기)
-	 * 
+	 *
+	 * @param args the input arguments
+	 * @throws Exception the exception
 	 * @Author khpark
 	 */
 	public static void main(String... args) throws Exception {

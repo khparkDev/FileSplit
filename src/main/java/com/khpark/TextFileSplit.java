@@ -14,6 +14,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * The type Text file split.
+ */
 public class TextFileSplit {
 	private ExecutorService executorService = Executors.newCachedThreadPool();
 	private static final int MB = 1024 * 1000;
@@ -26,18 +29,44 @@ public class TextFileSplit {
 	private List<Future<Boolean>> futureList = new ArrayList<Future<Boolean>>();
 	private List<Boolean> executeResultList = new ArrayList<Boolean>();
 
+	/**
+	 * Instantiates a new Text file split.
+	 *
+	 * @throws Exception the exception
+	 */
 	public TextFileSplit() throws Exception {
 		throw new Exception("Filename must be not null!");
 	}
 
+	/**
+	 * Instantiates a new Text file split.
+	 *
+	 * @param filename the filename
+	 * @throws Exception the exception
+	 */
 	public TextFileSplit(String filename) throws Exception {
 		this(filename, -1, -1);
 	}
 
+	/**
+	 * Instantiates a new Text file split.
+	 *
+	 * @param filename       the filename
+	 * @param splitFileCount the split file count
+	 * @throws Exception the exception
+	 */
 	public TextFileSplit(String filename, int splitFileCount) throws Exception {
 		this(filename, splitFileCount, -1);
 	}
 
+	/**
+	 * Instantiates a new Text file split.
+	 *
+	 * @param filename       the filename
+	 * @param splitFileCount the split file count
+	 * @param bufferSize     the buffer size
+	 * @throws Exception the exception
+	 */
 	public TextFileSplit(String filename, int splitFileCount, int bufferSize) throws Exception {
 		this.filename = filename;
 		this.splitFileCount = splitFileCount;
@@ -45,6 +74,13 @@ public class TextFileSplit {
 		init();
 	}
 
+	/**
+	 * Execute split file.
+	 *
+	 * @throws IOException          the io exception
+	 * @throws InterruptedException the interrupted exception
+	 * @throws ExecutionException   the execution exception
+	 */
 	public void executeSplitFile() throws IOException, InterruptedException, ExecutionException {
 		int startPosition = 0;
 		boolean executeResult = true;

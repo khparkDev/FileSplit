@@ -11,6 +11,9 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.Callable;
 
+/**
+ * The type Worker thread.
+ */
 public class WorkerThread implements Callable<Boolean> {
 	private String filename;
 	private int fileNum;
@@ -20,6 +23,16 @@ public class WorkerThread implements Callable<Boolean> {
 	private FileChannel cin;
 	private ByteBuffer byteBuffer;
 
+	/**
+	 * Instantiates a new Worker thread.
+	 *
+	 * @param filename      the filename
+	 * @param fileNum       the file num
+	 * @param startPosition the start position
+	 * @param limitSize     the limit size
+	 * @param bufferSize    the buffer size
+	 * @throws FileNotFoundException the file not found exception
+	 */
 	@SuppressWarnings("resource")
 	public WorkerThread(String filename, int fileNum, long startPosition, long limitSize, long bufferSize) throws FileNotFoundException {
 		this.filename = filename;
